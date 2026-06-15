@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ITZBund React Basic adfd</title>
+  </head>
+
+  
+  <body>
+    <div id="root">
+
+      <section id="cards">
+        <div class="innerSection">
+          <h1>Überschrift</h1>
+          <div class="cardsWrapper">
+            <div id="card1">Card1</div>
+            <div>Card2</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+
+    <!-- DOM MANIPULATION -->
+    <script>
+      const root = document.getElementById("root") // => root ist nun in JS
+
+      const h1 = document.createElement("h1") // => element wird erstellt
+      h1.innerText = "hallo kurs" // => fülle in den innertext
+      h1.className = "heading"
+
+      root.append(h1, p) // => der DOM ausspielen
+
+      const p = document.createElement("p")
+      p.innerText = "das ist ein p tag"
+
+    </script>
+
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
