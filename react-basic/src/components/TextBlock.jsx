@@ -1,6 +1,6 @@
-const TextBlock = (props) => {
-    console.log("props in TextBlock", props)
-    return <p>{props.text}</p>
+const TextBlock = ({text}) => {
+    console.log("props in TextBlock", text)
+    return <p>{text}</p>
 }
 
 export default TextBlock

@@ -7,7 +7,7 @@ const Heading = (props) => {
     const { title, text, children } = props // => Destructuring object
     return <>
         <h1>{title}</h1>
-        <TextBlock text={text}/>
+        <TextBlock text={text} />
         {children}
     </>
 }

@@ -1,0 +1,17 @@
+.blueBorder {
+    border-color: blue
+}
+
+.layoutWrapper {
+    border: 1px solid red;
+    width: 80%;
+    margin: 0 auto 0 auto
+}
+
+.mainContent {
+    border: 1px solid green;
+}
+
+.mainContent > h1 {
+    font-size: 5rem;
+}

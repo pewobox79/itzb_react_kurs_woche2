@@ -1,3 +1,8 @@
+
+h1 {
+  color: red;
+  font-size: 4rem
+}
 .counter {
   font-size: 16px;
   padding: 5px 10px;
