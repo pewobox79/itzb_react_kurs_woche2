@@ -1,4 +1,5 @@
 function Footer() {
+    console.log("footer rendered")
     return <footer>
         <h1>das ist ein footer</h1>
     </footer>

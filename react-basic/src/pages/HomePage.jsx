@@ -1,12 +1,17 @@
 import EventComponent from "../components/EventComponent"
-import CounterFeature from "../features/CounterFeature"
+import { useState } from "react"
+import LoginFeature from "../features/LoginFeature"
 
-const HomePage = () => {
-
+const HomePage = ({children}) => {
+    console.log("Homepage rendered")
+    const [changeColor, setChangeColor] = useState(false)
     return <>
-        <h1>Homepage</h1>
-        <EventComponent />
-        <CounterFeature/>
+        <h1 style={{color: changeColor ? "purple": "green"}}>Homepage</h1>
+        <EventComponent
+            changeColor={changeColor}
+            setChangeColor={setChangeColor} />
+        {children}
+        <LoginFeature/>
     </>
 }
 

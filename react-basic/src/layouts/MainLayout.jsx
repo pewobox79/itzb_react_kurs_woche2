@@ -3,7 +3,7 @@ import Footer from "../components/Footer"
 import Header from "../components/Header"
 
 const MainLayout = ({ children }) => {
-    console.log("styles module", styles)
+    console.log("layout rendered")
     return <div    >
         <Header />
         <main className={styles.mainContent}>

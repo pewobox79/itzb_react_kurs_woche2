@@ -1,18 +1,16 @@
 import { useState } from "react"
 
 const CounterFeature =()=>{
+    console.log("counter rendered")
     const [count, setCount] = useState(0)
 
     function increment(){
-        setCount( prev => prev + 1 )
+        setCount(count + 1)
     }
 
     function decrement(){
-
-        if(count === 0) return
-        setCount(prev => prev - 1 )
+        setCount(prev => prev - 1)
     }
-
     
     return <>
     <h3>{count}</h3>
