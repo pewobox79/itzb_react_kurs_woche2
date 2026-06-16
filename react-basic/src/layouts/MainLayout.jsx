@@ -4,10 +4,7 @@ import Header from "../components/Header"
 
 const MainLayout = ({ children }) => {
     console.log("styles module", styles)
-    return <div
-        style={{ borderColor: "blue" }}
-        className={styles.layoutWrapper}
-    >
+    return <div    >
         <Header />
         <main className={styles.mainContent}>
             {children}
