@@ -27,11 +27,12 @@ const EffectComponent = () => {
         //cleanup function
         return () => {
             console.log("cleanup runs")
+            // => entfernt das element bei componentWillUpdate
             const elementToRemove = document.getElementById("consent")
             elementToRemove.remove()
         }
     }, [consent])
-    
+
     console.log("consent ist: ", consent)
     return <>
         <h1>Effect Component</h1>
