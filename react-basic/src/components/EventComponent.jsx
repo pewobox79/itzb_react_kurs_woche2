@@ -1,11 +1,10 @@
 import { useState } from "react"
 
 const EventComponent =({changeColor, setChangeColor})=>{
-    console.log("event component rendered")
+    
     // Überschriftfarbe soll bei btnclick von rot auf blau wechseln
 
     const [hasChanged, setHasChanged] = useState(false) // => jetzt ist die komponente StateFull!
-
     function changeHPColor(){
         setChangeColor(!changeColor)
     }
@@ -13,9 +12,10 @@ const EventComponent =({changeColor, setChangeColor})=>{
         setHasChanged(!hasChanged)
         console.log("btn Clicked", hasChanged)
     }
+
     return <div>
         <h3 style={{ color: hasChanged ? "green" : "blue" }}>Überschrift Farbwechsel</h3>
-        <button onClick={handleBtnClick}>Click</button>
+        <button onClick={()=>handleBtnClick()}>Click</button>
         <button onClick={changeHPColor}>HP Color</button>
     </div>
 }
