@@ -6,7 +6,7 @@ import About from "../pages/About"
 export const router = createBrowserRouter([
     {
         path: "/",
-        element: <MainLayout />,
+        element: <MainLayout ><h3>ich bin ein props.children von mainlayout</h3></MainLayout>,
         children: [
             {
                 index: true,

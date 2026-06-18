@@ -3,12 +3,16 @@ import { useState } from "react"
 const UsersFeatureItem =({user})=>{
 
     const [expand, setExpand] = useState(false)
-    return <div id={"user_list_key_" + user.id}>
-        <h3>{user.username}</h3>
-        <p>{user.email}</p>
-        <button onClick={() => setExpand(!expand)}>Expand {user.id}</button>
+    if (!user) return
+    // => JS destructuring
+    const {username, email, address, id} = user
+    
+    return <div id={"user_list_key_" + id}>
+        <h3>{username}</h3>
+        <p>{email}</p>
+        <button onClick={() => setExpand(!expand)}>Expand {id}</button>
         <div style={{ display: expand ? "block" : "none" }}>
-            <p>Address: {user?.address?.street || "Address not known"}</p>
+            <p>Address: {address?.street || "Address not known"}</p>
         </div>
     </div>
 

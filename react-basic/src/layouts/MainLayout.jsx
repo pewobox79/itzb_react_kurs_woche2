@@ -10,6 +10,7 @@ const MainLayout = ({ children }) => {
         <Header />
         <main className={styles.mainContent}>
             {children}
+            <hr/>
             <Outlet/>
         </main>
         <Footer />

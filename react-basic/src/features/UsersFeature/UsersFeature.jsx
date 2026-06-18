@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import UsersFeatureItem from "./UsersFeatureItem"
 
-const URL_VICI = "http://localhost:5173/api/users"
+//const URL_VICI = "http://localhost:5173/api/users"
 const URL_GUACAMOLE = "https://jsonplaceholder.typicode.com/users"
 
 const UsersFeature = () => {
@@ -20,7 +20,7 @@ const UsersFeature = () => {
                     setIsLoading(false)
                 })
 
-        }, 2000)
+        }, 1)
 
     }, [])
 
@@ -29,14 +29,22 @@ const UsersFeature = () => {
     // dynamic rendering
     const UserList = users.map((user) => {
         console.log("user", user)
-        return <UsersFeatureItem key={"user_list_key_" + user.id} user={user} />
-
+        return <UsersFeatureItem 
+            key={"user_list_key_" + user.username} 
+            user={user} />
     })
     console.log("userlist", UserList)
-    if(isLoading) return <div>...UserData is Loading...</div>
+    if(isLoading || users.length == 0) return <div>...UserData is Loading...</div>
 
     return <div>
         <h3>Userslist</h3>
+        {/* manuelle intergration der user 1-3 => sind allerdings auch ein eigener Scope */}
+        <h3>Manuelle Einträge</h3>
+        <UsersFeatureItem user={users[0]}/>
+        <UsersFeatureItem user={users[1]}/>
+        <UsersFeatureItem user={users[2]}/>
+        <hr/>
+        <h3>Dynamischen einträge</h3>
         {UserList}
     </div>
 }
