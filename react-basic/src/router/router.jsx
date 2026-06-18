@@ -3,6 +3,10 @@ import Homepage from '../pages/HomePage'
 import MainLayout from '../layouts/MainLayout'
 import About from "../pages/About"
 import SingleUserPage from '../pages/SingleUserPage'
+import UsersFeature from '../features/UsersFeature/UsersFeature'
+import ProtectedLayout from '../layouts/ProtectedLayout'
+import { protectedLoader } from '../auth/loader'
+import LoginFeature from '../features/LoginFeature'
 
 export const router = createBrowserRouter([
     {
@@ -22,12 +26,22 @@ export const router = createBrowserRouter([
                 }]
             },
             {
-                path: "users",
-                element: <h1>users element</h1>
+                path:"login",
+                element: <LoginFeature/>
             },
             {
-                path: "user/:id",
-                element: <SingleUserPage/>
+                path: "users",
+                loader: protectedLoader,
+                element: <ProtectedLayout/>,
+                children:[
+                    {
+                        index:true,
+                        element: <UsersFeature/>
+                    }, {
+                        path: ":id",
+                        element: <SingleUserPage />
+                    }
+                ]
             }
         ]
     },

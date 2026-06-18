@@ -1,9 +1,12 @@
 import { useState } from "react"
+import { useLocalStorage } from "../hooks/useLocalStorage"
 
 const INIT_VALUES = { username: "", password: "" }
 const LoginFeature = () => {
     const [userData, setUserData] = useState(INIT_VALUES)
+    const [value, setStoredValue] = useLocalStorage("itzb_user")
 
+    console.log("value in local storage", value)
     function handleChange(eventObject) {
 
         const { name, value } = eventObject.target
@@ -11,8 +14,15 @@ const LoginFeature = () => {
 
     }
 
-    function handleSubmit(){
+    function handleSubmit(e) {
+        // => localStorage soll die user daten abspeichern
+        // => isLoggedin: true
+        e.preventDefault()
+        const loggedStatus = { loggedIn: true }
+        const updatedValues = { ...userData, ...loggedStatus }
         alert(JSON.stringify(userData))
+        setStoredValue(updatedValues)
+        
     }
     console.log("userData", userData)
     return <div>
