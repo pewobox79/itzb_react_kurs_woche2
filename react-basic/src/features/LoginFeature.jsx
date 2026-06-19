@@ -1,12 +1,16 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useLocalStorage } from "../hooks/useLocalStorage"
+import { ThemeContext } from "../store/context/themeContext"
+import Heading from '../components/Heading'
 
 const INIT_VALUES = { username: "", password: "" }
 const LoginFeature = () => {
-    const [userData, setUserData] = useState(INIT_VALUES)
-    const [value, setStoredValue] = useLocalStorage("itzb_user")
+    console.log("login feature rendered")
+    const { setThemeState } = useContext(ThemeContext)
 
-    console.log("value in local storage", value)
+    const [userData, setUserData] = useState(INIT_VALUES)
+    const [setStoredValue] = useLocalStorage("itzb_user")
+
     function handleChange(eventObject) {
 
         const { name, value } = eventObject.target
@@ -18,14 +22,16 @@ const LoginFeature = () => {
         // => localStorage soll die user daten abspeichern
         // => isLoggedin: true
         e.preventDefault()
-        const loggedStatus = { loggedIn: true }
+        const loggedStatus = { loggedIn: true, role: "hausmeister" }
         const updatedValues = { ...userData, ...loggedStatus }
         alert(JSON.stringify(userData))
         setStoredValue(updatedValues)
         
     }
-    console.log("userData", userData)
+
     return <div>
+        <Heading title="das ist das heading" text="das ist der heading text" />
+        <button onClick={()=>setThemeState("light")}>switch theme to light</button>
         <form style={{ display: "flex", flexDirection: "column", width: "50%", margin: "auto", padding: "20px 0" }}>
             <input
                 type="text"

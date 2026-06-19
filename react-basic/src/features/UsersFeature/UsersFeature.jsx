@@ -24,8 +24,6 @@ const UsersFeature = () => {
 
     }, [])
 
-    console.log("users", users)
-
     // dynamic rendering
     const UserList = users.map((user) => {
         console.log("user", user)

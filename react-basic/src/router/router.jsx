@@ -11,7 +11,7 @@ import LoginFeature from '../features/LoginFeature'
 export const router = createBrowserRouter([
     {
         path: "/",
-        element: <MainLayout ><h3>ich bin ein props.children von mainlayout</h3></MainLayout>,
+        element: <MainLayout><h3>ich bin ein props.children von mainlayout</h3></MainLayout>, //=> mit children wird dieses element zu einem "layout" element
         children: [
             {
                 index: true,
@@ -31,8 +31,8 @@ export const router = createBrowserRouter([
             },
             {
                 path: "users",
-                loader: protectedLoader,
-                element: <ProtectedLayout/>,
+                loader: protectedLoader, // => läuft VOR einem CSR (client side rendering)
+                element: <ProtectedLayout />,
                 children:[
                     {
                         index:true,

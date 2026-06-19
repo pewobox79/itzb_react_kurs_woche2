@@ -1,5 +1,5 @@
 const TextBlock = ({text}) => {
-    console.log("props in TextBlock", text)
+    console.log("text block rendered")
     return <p>{text}</p>
 }
 
