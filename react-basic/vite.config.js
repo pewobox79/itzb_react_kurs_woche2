@@ -11,6 +11,16 @@ const agent = new HttpsProxyAgent(proxy);
 // Config setup für Anwendung in VICI
 export default defineConfig({
   plugins: [react()],
+  server: {
+    proxy: {
+      "/api": {
+        target: "http://jsonplaceholder.typicode.com",
+        changeOrigin: true,
+        agent: agent,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
+  },
   esbuild: {
     include: /.*\.jsx?$/, // Treat .js and .jsx files as JSX
     exclude: [],
@@ -19,16 +29,6 @@ export default defineConfig({
     esbuildOptions: {
       loader: {
         '.js': 'jsx', // Ensure dependencies with JSX in .js are handled
-      },
-    },
-  },
-  server: {
-    proxy: {
-      "/api": {
-        target: "http://jsonplaceholder.typicode.com",
-        changeOrigin: true,
-        agent: agent,
-        rewrite: (path) => path.replace(/^\/api/, ""),
       },
     },
   },
